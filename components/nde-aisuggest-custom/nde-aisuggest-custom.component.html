@@ -1,0 +1,36 @@
+<mat-card *ngIf="visible">
+  <mat-card-header>
+    <mat-icon>lightbulb</mat-icon>
+    <span>AI Suggested Answer</span>
+  </mat-card-header>
+
+  <mat-card-content>
+    <!-- Loading state -->
+    <div *ngIf="loading" class="loading-container">
+      <mat-progress-spinner diameter="24" mode="indeterminate"></mat-progress-spinner>
+      <span class="loading-text">Generating answer...</span>
+    </div>
+
+    <!-- Answer -->
+    <div *ngIf="!loading && answer">
+      <div class="answer-header">
+        <mat-icon class="ready-icon">check_circle</mat-icon>
+        <span class="ready-text">Answer generated</span>
+      </div>
+
+      <div #answerText class="answer-text" [class.collapsed]="!expanded">
+        {{ answer }}
+      </div>
+
+      <!-- Fade overlay -->
+      <div *ngIf="!expanded && isExpandable" class="fade-overlay"></div>
+
+      <!-- Expand/Collapse button -->
+      <div *ngIf="isExpandable" class="expand-button">
+        <button mat-button (click)="toggleExpand()">
+          {{ expanded ? 'Show less' : 'Show more' }}
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
