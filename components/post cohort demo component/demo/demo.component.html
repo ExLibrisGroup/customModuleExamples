@@ -1,0 +1,10 @@
+<p>current language code: {{languageCode$ | async}}</p>
+<p>current language: {{language$ | async}}</p>
+
+@if( recordTitleFromStore() != null) {
+  <p class="record-title">title from store: {{recordTitleFromStore()}}</p>
+}
+
+@if (recordTitleFromHost() != null) {
+  <p class="record-title">title from host: {{recordTitleFromHost()}}</p>
+}

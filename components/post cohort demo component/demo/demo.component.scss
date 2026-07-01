@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  padding: 16px;
+  margin-top: 16px;
+  outline: var(--sys-outline) solid 1px;
+  background-color: var(--sys-surface);
+}
+.record-title {
+  color: var(--sys-primary);
+}
